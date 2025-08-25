@@ -1,0 +1,22 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/robotica/audio_ws/install/whisper_msgs/local/lib/python3.10/dist-packages",
+        "/home/robotica/audio_ws/install/respeaker_ros/lib/python3.10/site-packages",
+        "/home/robotica/audio_ws/install/llama_msgs/local/lib/python3.10/dist-packages",
+        "/home/robotica/audio_ws/install/audio_llm_ros/lib/python3.10/site-packages",
+        "/home/robotica/audio_ws/install/audio_common_msgs/local/lib/python3.10/dist-packages",
+        "/home/robotica/audio_ws/install/angles/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/robotica/audio_ws/install/whisper_msgs/local/lib/python3.10/dist-packages",
+        "/home/robotica/audio_ws/install/respeaker_ros/lib/python3.10/site-packages",
+        "/home/robotica/audio_ws/install/llama_msgs/local/lib/python3.10/dist-packages",
+        "/home/robotica/audio_ws/install/audio_llm_ros/lib/python3.10/site-packages",
+        "/home/robotica/audio_ws/install/audio_common_msgs/local/lib/python3.10/dist-packages",
+        "/home/robotica/audio_ws/install/angles/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

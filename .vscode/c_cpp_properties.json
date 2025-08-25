@@ -1,0 +1,35 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/robotica/audio_ws/install/whisper_onnxruntime_vendor/include/**",
+        "/home/robotica/audio_ws/install/whisper_msgs/include/**",
+        "/home/robotica/audio_ws/install/whisper_hfhub_vendor/include/**",
+        "/home/robotica/audio_ws/install/llama_msgs/include/**",
+        "/home/robotica/audio_ws/install/llama_hfhub_vendor/include/**",
+        "/home/robotica/audio_ws/install/audio_common/include/**",
+        "/home/robotica/audio_ws/install/audio_common_msgs/include/**",
+        "/home/robotica/audio_ws/install/angles/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/robotica/audio_ws/src/angles/angles/include/**",
+        "/home/robotica/audio_ws/src/audio_common/audio_common/include/**",
+        "/home/robotica/audio_ws/src/cs4home_architecture/cs4home_core/include/**",
+        "/home/robotica/audio_ws/src/llama.cpp/include/**",
+        "/home/robotica/audio_ws/src/llama_ros/llama_bt/include/**",
+        "/home/robotica/audio_ws/src/llama_ros/llama_ros/include/**",
+        "/home/robotica/audio_ws/src/whisper_ros/whisper_ros/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

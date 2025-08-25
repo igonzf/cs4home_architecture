@@ -170,6 +170,57 @@ public:
     return get_msg<MessageT>(msg);
   }
 
+  template <typename T, typename = void>
+  struct has_header : std::false_type {};
+
+  template <typename T>
+  struct has_header<T, std::void_t<decltype(std::declval<T>().header)>> : std::true_type {};
+  
+  template<typename T>
+  std::shared_ptr<T> get_closest_msg(size_t topic_idx,
+                                    const rclcpp::Time& target_stamp,
+                                    double tolerance_sec)
+  {
+    if (topic_idx >= input_topic_names_.size()) {
+      RCLCPP_WARN(parent_->get_logger(), "[Afferent] Topic index %zu invalid", topic_idx);
+      return nullptr;
+    }
+
+    const std::string &topic = input_topic_names_[topic_idx];
+    if (msg_queues_.find(topic) == msg_queues_.end() || msg_queues_[topic].empty()) {
+      return nullptr;
+    }
+
+    std::shared_ptr<T> closest_msg = nullptr;
+    double best_diff = std::numeric_limits<double>::max();
+
+    auto queue_copy = msg_queues_[topic];
+    rclcpp::Serialization<T> serializer;
+
+    while (!queue_copy.empty()) {
+      auto serialized = queue_copy.front();
+      queue_copy.pop();
+
+      auto candidate = std::make_shared<T>();
+      serializer.deserialize_message(serialized.get(), candidate.get());
+
+      if constexpr (has_header<T>::value) {
+        rclcpp::Time t_msg(candidate->header.stamp);
+        double diff = fabs((t_msg - target_stamp).seconds());
+
+        if (diff < best_diff) {
+          best_diff = diff;
+          closest_msg = candidate;
+        }
+      }
+    }
+
+    if (closest_msg && best_diff <= tolerance_sec) {
+      return closest_msg;
+    }
+    return nullptr;
+  }
+
 protected:
   /** Shared pointer to the parent node. */
   rclcpp_lifecycle::LifecycleNode::SharedPtr parent_;
